@@ -13,11 +13,7 @@ cd 5G-iq-baseband-visualizer
 make
 ./viz_iq
 ```
-## Examples
-![I/Q visualization 1](imgs/pic1.png)
-![I/Q visualization 2](imgs/pic2.png)
-![I/Q visualization 3](imgs/pic3.png)
-
+![I/Q visualization](imgs/demo.gif)
 
 Core concepts:
 - Complex baseband representation (I/Q)
