@@ -39,3 +39,6 @@
 
 # debug information files
 *.dwo
+
+#app binary
+viz_iq

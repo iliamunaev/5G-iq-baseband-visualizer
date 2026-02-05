@@ -1,7 +1,5 @@
 #include <numbers>
-
 #include "iq.hpp"
-
 
 double phaseStepRadPerSample(uint32_t freq, uint32_t fs) {
     const double phase_step =

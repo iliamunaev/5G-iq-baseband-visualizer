@@ -3,28 +3,27 @@
 #include <vector>
 #include "iq.hpp"
 
-int n = 100;
-int rate = 20;
-
-int main() {
+int main(void) {
     Config config;
+    const int frame_size = 100;
+    const int fps = 20;
 
     auto phase_step = phaseStepRadPerSample(config.freq, config.fs);
 
     while (true) {
         std::vector<ComplexSignalPoint> frame;
-        frame.reserve(static_cast<std::size_t>(n));
+        frame.reserve(frame_size);
 
-        for (int idx = 0; idx < n; ++idx) {
+        for (int idx = 0; idx < frame_size; ++idx) {
             frame.push_back(calculatePoint(config.amp, config.phase));
-            config.phase += static_cast<float>(phase_step);
+            config.phase += phase_step;
         }
 
         plotComplexSignalFrame(frame.data(), frame.size());
 
-        if (rate > 0) {
+        if (fps > 0) {
             std::this_thread::sleep_for(
-                std::chrono::milliseconds(1000 / rate));
+                std::chrono::milliseconds(1000 / fps));
         }
     }
 
