@@ -15,3 +15,4 @@ struct ComplexSignalPoint {
 };
 
 ComplexSignalPoint calculatePoint(double amp, double phase);
+void plotComplexSignalPoint(const ComplexSignalPoint& s);
