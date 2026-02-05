@@ -3,8 +3,8 @@ CPP := g++
 CXXFLAGS := -std=c++23 -O2 -Wall -Wextra -Iinclude
 
 SRCS := src/main.cpp \
-		src/calculatePoint.cpp \
-		src/plotComplexSignalPoint.cpp
+		src/calculate.cpp \
+		src/plot.cpp
 
 OBJDIR := obj
 OBJS := $(SRCS:src/%.cpp=$(OBJDIR)/%.o)

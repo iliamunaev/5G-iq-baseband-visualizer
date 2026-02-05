@@ -5,7 +5,8 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(iq_lib
-  src/calculatePoint.cpp
+  src/calculate.cpp
+  src/plot.cpp
 )
 target_include_directories(iq_lib PUBLIC include)
 
@@ -29,6 +30,7 @@ FetchContent_MakeAvailable(googletest)
 
 add_executable(iq_tests
   tests/test_calculatePoint.cpp
+  tests/test_phaseStepRadPerSample.cpp
 )
 target_link_libraries(iq_tests PRIVATE iq_lib GTest::gtest_main)
 

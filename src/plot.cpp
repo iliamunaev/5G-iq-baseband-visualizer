@@ -26,6 +26,14 @@ FILE* open_gnuplot() {
 }
 
 void plotComplexSignalPoint(const ComplexSignalPoint& s) {
+    plotComplexSignalFrame(&s, 1);
+}
+
+void plotComplexSignalFrame(const ComplexSignalPoint* points, std::size_t count) {
+    if (!points || count == 0) {
+        return;
+    }
+
     FILE* gp = open_gnuplot();
     if (!gp) {
         return;
@@ -43,7 +51,9 @@ void plotComplexSignalPoint(const ComplexSignalPoint& s) {
     }
 
     std::fprintf(gp, "plot '-' with points pointtype 7\n");
-    std::fprintf(gp, "%f %f\n", s.i, s.q);
+    for (std::size_t idx = 0; idx < count; ++idx) {
+        std::fprintf(gp, "%f %f\n", points[idx].i, points[idx].q);
+    }
     std::fprintf(gp, "e\n");
     std::fflush(gp);
 }
